@@ -1,0 +1,168 @@
+<!--
+@license
+Copyright (c) 2017 The StartPolymer Project Authors. All rights reserved.
+This code may only be used under license found at https://github.com/StartPolymer/license
+The complete set of authors may be found at https://github.com/StartPolymer/authors
+The complete set of contributors may be found at https://github.com/StartPolymer/contributors
+-->
+
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../../paper-styles/color.html">
+
+<custom-style>
+<style is="custom-style">
+
+/* Polymer includes a shim for CSS Custom Properties that we can use for application theming.
+   Feel free to play with changing the colors used or generate your own palette of colours at material.io/color.
+
+   See https://www.polymer-project.org/2.0/docs/devguide/custom-css-properties
+   for further information on custom CSS properties.
+
+   CSS Variables: Why Should You Care?
+   https://developers.google.com/web/updates/2016/02/css-variables-why-should-you-care */
+
+:host, html {
+
+  /* Material Design Color
+     http://www.google.com/design/spec/style/color.html */
+
+  /* Material Design Themes
+     https://www.google.com/design/spec/style/color.html#color-themes */
+
+  /* Light theme */
+  --light-theme-primary-background-color: var(--paper-grey-50);     /* Content background */
+  --light-theme-secondary-background-color: var(--paper-grey-100);  /* Main background, Drawer background */
+  --light-theme-tertiary-background-color: #fff;                    /* Cards background, Dialogs background */
+  --light-theme-primary-text-color: rgba(0, 0, 0, 0.87);            /* Most important text */
+  --light-theme-secondary-text-color: rgba(0, 0, 0, 0.54);          /* Secondary text */
+  --light-theme-disabled-text-color: rgba(0, 0, 0, 0.38);           /* Disabled text, Hint text */
+  --light-theme-error-text-color: rgba(255, 23, 68, 0.87);          /* Error text, Invalid text fields error text */
+  --light-theme-divider-color: rgba(0, 0, 0, 0.12);                 /* Dividers */
+  --light-theme-error-color: var(--paper-red-a400);                 /* Invalid text fields - bottom line, label text */
+  --light-theme-primary-link-color: var(--dark-primary-color);
+  --light-theme-secondary-link-color: var(--dark-secondary-color);
+
+  /* Dark theme */
+  --dark-theme-primary-background-color: #303030;                   /* Content background */
+  --dark-theme-secondary-background-color: var(--paper-grey-900);   /* Main background, Drawer background */
+  --dark-theme-tertiary-background-color: var(--paper-grey-800);    /* Cards background, Dialogs background */
+  --dark-theme-primary-text-color: #fff;                            /* Most important text */
+  --dark-theme-secondary-text-color: rgba(255, 255, 255, 0.7);      /* Secondary text */
+  --dark-theme-disabled-text-color: rgba(255, 255, 255, 0.5);       /* Disabled text, Hint text */
+  --dark-theme-error-text-color: var(--paper-red-a400);             /* Error text, Invalid text fields error text */
+  --dark-theme-divider-color: rgba(255, 255, 255, 0.12);            /* Dividers */
+  --dark-theme-error-color: var(--paper-red-a400);                  /* Invalid text fields - bottom line, label text */
+  --dark-theme-primary-link-color: var(--primary-color);
+  --dark-theme-secondary-link-color: var(--secondary-color);
+
+  /* Colors */
+  --primary-background-color: var(--light-theme-primary-background-color);
+  --secondary-background-color: var(--light-theme-secondary-background-color);
+  --tertiary-background-color: var(--light-theme-tertiary-background-color);
+  --primary-text-color: var(--light-theme-primary-text-color);
+  --secondary-text-color: var(--light-theme-secondary-text-color);
+  --disabled-text-color: var(--light-theme-disabled-text-color);
+  --error-text-color: var(--light-theme-error-text-color);
+  --divider-color: var(--light-theme-divider-color);
+  --error-color: var(--light-theme-error-color);
+  --primary-link-color: var(--light-theme-primary-link-color);
+  --secondary-link-color: var(--light-theme-secondary-link-color);
+
+  /* Primary color */
+  --primary-color-50: var(--paper-indigo-50);
+  --primary-color-100: var(--paper-indigo-100);
+  --primary-color-200: var(--paper-indigo-200);
+  --primary-color-300: var(--paper-indigo-300);
+  --primary-color-400: var(--paper-indigo-400);
+  --primary-color-500: var(--paper-indigo-500);
+  --primary-color-600: var(--paper-indigo-600);
+  --primary-color-700: var(--paper-indigo-700);
+  --primary-color-800: var(--paper-indigo-800);
+  --primary-color-900: var(--paper-indigo-900);
+  --primary-color: var(--primary-color-500);                        /* Header bar */
+  --light-primary-color: var(--primary-color-100);
+  --dark-primary-color: var(--primary-color-700);
+  --text-primary-color: #fff;                                       /* Text on primary color */
+  --text-light-primary-color: var(--light-theme-primary-text-color);
+  --text-dark-primary-color: #fff;
+
+  /* Secondary color */
+  --secondary-color-100: var(--paper-pink-a100);
+  --secondary-color-200: var(--paper-pink-a200);
+  --secondary-color-400: var(--paper-pink-a400);
+  --secondary-color-700: var(--paper-pink-a700);
+  --secondary-color: var(--secondary-color-200);                    /* Focus / Links / Switches */
+  --light-secondary-color: var(--secondary-color-100);
+  --dark-secondary-color: var(--secondary-color-400);
+  --text-secondary-color: #fff;                                     /* Text on primary color */
+  --text-light-secondary-color: var(--light-theme-primary-text-color);
+  --text-dark-secondary-color: #fff;
+
+  /* Support for accent color */
+  --accent-color: var(--secondary-color);
+  --light-accent-color: var(--light-secondary-color);
+  --dark-accent-color: var(--dark-secondary-color);
+  --text-accent-color: var(--text-secondary-color);
+  --text-light-accent-color: var(--text-light-secondary-color);
+  --text-dark-accent-color: var(--text-dark-secondary-color);
+
+  /* Conversion color */
+  --conversion-color: var(--paper-green-a700);                      /* Conversion buttons (call to action, CTA) */
+  --text-conversion-color: #fff;
+
+  /* Icon color */
+  --light-active-icon-color: #fff;
+  --light-inactive-icon-color: rgba(255, 255, 255, 0.5);
+  --dark-active-icon-color: rgba(0, 0, 0, 0.54);
+  --dark-inactive-icon-color: rgba(0, 0, 0, 0.38);
+
+  /* Toggle button colors
+     https://www.google.com/design/spec/components/selection-controls.html#selection-controls-switch */
+  --light-theme-toggle-unchecked-bar-color: #000;
+  --light-theme-toggle-unchecked-button-color: var(--paper-grey-50);
+  --light-theme-toggle-unchecked-ink-color: var(--paper-grey-700);
+  --light-theme-toggle-checked-bar-color: var(--secondary-color);
+  --light-theme-toggle-checked-button-color: var(--secondary-color);
+  --light-theme-toggle-checked-ink-color: var(--dark-secondary-color);
+
+  --dark-theme-toggle-unchecked-bar-color: var(--paper-grey-400);
+  --dark-theme-toggle-unchecked-button-color: var(--paper-grey-400);
+  --dark-theme-toggle-unchecked-ink-color: var(--paper-grey-50);
+  --dark-theme-toggle-checked-bar-color: var(--light-secondary-color);
+  --dark-theme-toggle-checked-button-color: var(--light-secondary-color);
+  --dark-theme-toggle-checked-ink-color: var(--light-secondary-color);
+
+  --toggle-unchecked-bar-color: var(--light-theme-toggle-unchecked-bar-color);
+  --toggle-unchecked-button-color: var(--light-theme-toggle-unchecked-button-color);
+  --toggle-unchecked-ink-color: var(--light-theme-toggle-unchecked-ink-color);
+  --toggle-checked-bar-color: var(--light-theme-toggle-checked-bar-color);
+  --toggle-checked-button-color: var(--light-theme-toggle-checked-button-color);
+  --toggle-checked-ink-color: var(--light-theme-toggle-checked-ink-color);
+
+}
+
+[theme~="dark"] {
+
+  --primary-background-color: var(--dark-theme-primary-background-color);
+  --secondary-background-color: var(--dark-theme-secondary-background-color);
+  --tertiary-background-color: var(--dark-theme-tertiary-background-color);
+  --primary-text-color: var(--dark-theme-primary-text-color);
+  --secondary-text-color: var(--dark-theme-secondary-text-color);
+  --disabled-text-color: var(--dark-theme-disabled-text-color);
+  --error-text-color: var(--dark-theme-error-text-color);
+  --divider-color: var(--dark-theme-divider-color);
+  --error-color: var(--dark-theme-error-color);
+  --primary-link-color: var(--dark-theme-primary-link-color);
+  --secondary-link-color: var(--dark-theme-secondary-link-color);
+
+  --toggle-unchecked-bar-color: var(--dark-theme-toggle-unchecked-bar-color);
+  --toggle-unchecked-button-color: var(--dark-theme-toggle-unchecked-button-color);
+  --toggle-unchecked-ink-color: var(--dark-theme-toggle-unchecked-ink-color);
+  --toggle-checked-bar-color: var(--dark-theme-toggle-checked-bar-color);
+  --toggle-checked-button-color: var(--dark-theme-toggle-checked-button-color);
+  --toggle-checked-ink-color: var(--dark-theme-toggle-checked-ink-color);
+
+}
+
+</style>
+</custom-style>

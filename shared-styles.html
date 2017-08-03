@@ -1,0 +1,242 @@
+<!--
+@license
+Copyright (c) 2017 The StartPolymer Project Authors. All rights reserved.
+This code may only be used under license found at https://github.com/StartPolymer/license
+The complete set of authors may be found at https://github.com/StartPolymer/authors
+The complete set of contributors may be found at https://github.com/StartPolymer/contributors
+-->
+
+<link rel="import" href="../polymer/polymer.html">
+
+<dom-module id="s-material-theme-shared-styles">
+<template>
+
+<style>
+
+[hidden] {
+  display: none !important;
+}
+
+/* Inline Flexbox container for vertical center <iron-icon> in text. */
+[inline-flex] {
+  @apply(--layout-inline);
+  @apply(--layout-center);
+  @apply(--layout-wrap);
+}
+
+[spacer] {
+  @apply(--layout-flex);
+}
+
+a {
+  color: var(--primary-link-color);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a:focus {
+  background-color: var(--primary-color-50);
+  border-radius: var(--border-radius);
+}
+
+a[secondary] {
+  color: var(--secondary-link-color);
+}
+
+a[touch] {
+  padding: calc((var(--touch-target-size) - var(--line-height)) / 2) 0;
+}
+
+address {
+  @apply(--paper-font-caption);
+
+  font-style: normal;
+}
+
+b, strong {
+  font-weight: 500;
+}
+
+blockquote {
+  @apply(--paper-font-blockquote);
+}
+
+blockquote:before {
+  position: absolute;
+  left: -0.5em;
+  content: '“';
+}
+
+blockquote:after {
+  content: '”';
+  margin-left: -0.05em;
+}
+
+center[horizontal] {
+  @apply(--layout-horizontal);
+  @apply(--layout-center);
+}
+
+center[vertical] {
+  @apply(--layout-vertical);
+  @apply(--layout-center);
+}
+
+dt {
+  font-weight: 700;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: var(--gutter) 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, a {
+  text-rendering: optimizeLegibility;
+}
+
+h1 {
+  @apply(--paper-font-headline);
+
+  margin-top: 0;
+}
+
+h2 {
+  @apply(--paper-font-title);
+}
+
+h3, h4, h5, h6 {
+  @apply(--paper-font-subhead);
+
+  font-weight: 500;
+}
+
+mark {
+  background-color: var(--paper-lime-a100);
+}
+
+p {
+  margin-top: 0;
+}
+
+p[intro] {
+  @apply(--paper-font-title);
+}
+
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid var(--divider-color);
+  margin: var(--gutter);
+}
+
+hr[secondary] {
+  border: 0;
+  height: 1px;
+  background: var(--divider-color);
+  background-image: linear-gradient(to right, #eee, var(--divider-color), #eee);
+}
+
+paper-checkbox {
+  /* Fix colors, PR https://github.com/PolymerElements/paper-checkbox/pull/161 */
+  --paper-checkbox-unchecked-color: var(--secondary-text-color);
+  --paper-checkbox-unchecked-ink-color: var(--secondary-text-color);
+
+  padding-top: calc((var(--touch-target-size) - 18px) / 2);
+  padding-bottom: calc((var(--touch-target-size) - 18px) / 2);
+}
+
+paper-radio-button {
+  padding-top: calc((var(--touch-target-size) - 16px) / 2) !important;
+  padding-bottom: calc((var(--touch-target-size) - 16px) / 2) !important;
+}
+
+paper-toggle-button {
+  --paper-toggle-button-unchecked-bar-color: var(--toggle-unchecked-bar-color);
+  --paper-toggle-button-unchecked-button-color: var(--toggle-unchecked-button-color);
+  --paper-toggle-button-unchecked-ink-color: var(--toggle-unchecked-ink-color);
+  --paper-toggle-button-checked-bar-color: var(--toggle-checked-bar-color);
+  --paper-toggle-button-checked-button-color: var(--toggle-checked-button-color);
+  --paper-toggle-button-checked-ink-color: var(--toggle-checked-ink-color);
+
+  padding-top: calc((var(--touch-target-size) - 22px) / 2);
+  padding-bottom: calc((var(--touch-target-size) - 22px) / 2);
+  padding-left: 1px;
+  padding-right: 1px;
+}
+
+paper-tooltip {
+  --paper-tooltip: {
+    font-size: var(--font-size);
+  };
+}
+
+paper-input,
+paper-textarea {
+  --paper-input-container-focus-color: var(--secondary-color);
+
+  --paper-input-container-input: {
+    font-size: var(--input-font-size);
+  };
+
+  --paper-input-container-label: {
+    font-size: var(--input-font-size);
+  };
+
+  --paper-input-error: {
+    font-size: var(--input-error-font-size);
+  };
+}
+
+paper-input.removeHighlight {
+  --paper-input-container-input: {
+    font-size: var(--input-font-size);
+
+    /* Remove autocomplete highlight color in Chrome
+       http://stackoverflow.com/a/36140769 */
+    -webkit-transition: background-color 0s ease-in-out 50000s, color 0s ease-in-out 5000s;
+  };
+}
+
+/* Material Design Breakpoints */
+/* https://material.io/guidelines/layout/responsive-ui.html#responsive-ui-breakpoints */
+
+/* Tablet wide */
+@media screen and (min-width: 600px) {
+  :host {
+    --grid-gutter: var(--medium-gutter);
+  }
+
+  h1 {
+    @apply(--paper-font-display1);
+  }
+
+  h2 {
+    @apply(--paper-font-headline);
+  }
+
+  h3 {
+    @apply(--paper-font-title);
+  }
+}
+
+/* Laptop wide */
+@media screen and (min-width: 960px) {
+  :host {
+    --gutter: var(--large-gutter);
+    --grid-gutter: var(--large-gutter);
+    --screen-edge-margin: var(--large-gutter);
+  }
+}
+
+/* Large wide */
+@media screen and (min-width: 1600px) {
+  :host {
+    --screen-edge-margin: var(--xlarge-gutter);
+  }
+}
+
+</style>
+
+</template>
+</dom-module>
