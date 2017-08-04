@@ -144,6 +144,12 @@ hr[secondary] {
   background-image: linear-gradient(to right, #eee, var(--divider-color), #eee);
 }
 
+paper-fab[mini] {
+  padding: calc((var(--touch-target-size) - var(--icon-size)) / 2);
+  width: var(--touch-target-size);
+  height: var(--touch-target-size);
+}
+
 paper-checkbox {
   /* Fix colors, PR https://github.com/PolymerElements/paper-checkbox/pull/161 */
   --paper-checkbox-unchecked-color: var(--secondary-text-color);
@@ -151,6 +157,12 @@ paper-checkbox {
 
   padding-top: calc((var(--touch-target-size) - 18px) / 2);
   padding-bottom: calc((var(--touch-target-size) - 18px) / 2);
+}
+
+paper-icon-button {
+  padding: calc((var(--touch-target-size) - var(--icon-size)) / 2);
+  width: var(--touch-target-size);
+  height: var(--touch-target-size);
 }
 
 paper-radio-button {
@@ -178,6 +190,7 @@ paper-tooltip {
     line-height: var(--line-height);
     padding: calc((32px - var(--line-height)) / 2) 16px;
     text-align: center;
+    margin-top: calc((var(--toolbar-height) - var(--touch-target-size)) / 2);
   };
 }
 
@@ -218,6 +231,7 @@ paper-input[remove-highlight],
 @media screen and (min-width: 600px) {
   :host {
     --grid-gutter: var(--medium-gutter);
+    --toolbar-height: var(--tablet-toolbar-height);
   }
 
   h1 {
@@ -238,6 +252,7 @@ paper-input[remove-highlight],
       line-height: 18px;
       padding: 2px 8px;
       text-align: center;
+      margin-top: calc((var(--toolbar-height) - var(--touch-target-size)) / 2);
     };
   }
 }
