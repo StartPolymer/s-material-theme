@@ -14,7 +14,7 @@ The complete set of contributors may be found at https://github.com/StartPolymer
 
 :host, html {
 
-  --font-family: 'Roboto', 'Noto', 'Helvetica', 'Arial', sans-serif;
+  --font-family: 'Roboto', 'Noto', 'Helvetica Neue', Arial, sans-serif;
   --font-size: 14px;
   --font-weight: 400;
   --line-height: 24px;
@@ -38,22 +38,18 @@ The complete set of contributors may be found at https://github.com/StartPolymer
   };
 
   /* Clear mixins */
-  /* font-family and -webkit-font-smoothing are defined in body */
+  /* font-family and -webkit-font-smoothing are defined here. */
   --paper-font-common-base: {};
 
-  /* nowrap font is bad for responsive design */
+  /* Default nowrap font is bad for responsive design. */
   --paper-font-common-nowrap: {};
-
-}
-
-body {
 
   font-family: var(--font-family);
   font-size: var(--font-size);
   font-weight: var(--font-weight);
   line-height: var(--line-height);
 
-  /* OS X subpixel AA bleed bug */
+  /* OS X subpixel AA bleed bug. */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
