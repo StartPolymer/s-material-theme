@@ -34,8 +34,9 @@ html {
 
   /* Accessible Touch target
      https://www.google.com/design/spec/usability/accessibility.html#accessibility-layout */
-  --touch-target-size: 48px;
+  --default-touch-target-size: 48px;
   --dense-touch-target-size: 40px;
+  --touch-target-size: var(--default-touch-target-size);
 
   /* Material Design Grid
      https://www.google.com/design/spec/layout/responsive-ui.html#responsive-ui-grid */
