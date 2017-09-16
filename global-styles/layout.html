@@ -16,11 +16,13 @@ html {
   /* Material Design Layout
      https://material.google.com/layout/principles.html */
   --avatar-size: 40px;
-  --icon-size: 24px;
-  /* When the mouse and keyboard are the primary input methods, measurements may be condensed to accommodate denser layouts.
-     For dense layouts on desktop, icons can be scaled down to 20dp.
+
+  /* System icons
      https://material.io/guidelines/style/icons.html#icons-system-icons */
-  --dense-icon-size: 20px;
+  --small-icon-size: 16px;
+  --medium-icon-size: 20px; /* For dense layouts on desktop. */
+  --large-icon-size: 24px; /* Default icon size. */
+  --icon-size: var(--large-icon-size);
 
   --drawer-width: 256px;
   --right-drawer-width: var(--drawer-width);

@@ -13,6 +13,10 @@ The complete set of contributors may be found at https://github.com/StartPolymer
 
 <style>
 
+:host {
+  --paper-icon-button-padding: ((var(--touch-target-size) - var(--large-icon-size)) / 2);
+}
+
 [s-material-scrollbar] {
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
@@ -147,8 +151,28 @@ hr[secondary] {
   background-image: linear-gradient(to right, #eee, var(--divider-color), #eee);
 }
 
+iron-icon {
+  width: var(--icon-size);
+  height: var(--icon-size);
+}
+
+iron-icon[small] {
+  width: var(--small-icon-size);
+  height: var(--small-icon-size);
+}
+
+iron-icon[medium] {
+  width: var(--medium-icon-size);
+  height: var(--medium-icon-size);
+}
+
+iron-icon[large] {
+  width: var(--large-icon-size);
+  height: var(--large-icon-size);
+}
+
 paper-fab[mini] {
-  padding: calc((var(--touch-target-size) - var(--icon-size)) / 2);
+  padding: calc((var(--touch-target-size) - var(--large-icon-size)) / 2);
   width: var(--touch-target-size);
   height: var(--touch-target-size);
 }
@@ -163,7 +187,7 @@ paper-checkbox {
 }
 
 paper-icon-button {
-  padding: calc((var(--touch-target-size) - var(--icon-size)) / 2);
+  padding: calc(var(--paper-icon-button-padding));
   width: var(--touch-target-size);
   height: var(--touch-target-size);
 }
