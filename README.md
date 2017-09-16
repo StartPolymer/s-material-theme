@@ -1,6 +1,8 @@
 # \<s-material-theme\>
 
+This Material Theme using `classes` instead of CSS Mixins.
 
+CSS Mixins using `@apply` are dead. Check out this video [Evolving the Next Generation of Polymer Elements (Polymer Summit 2017)](https://youtu.be/rvpJ5O0W_6A?t=18m43s) or post [Why I Abandoned @apply](http://www.xanthir.com/b4o00).
 
 ## Install the Polymer-CLI
 
